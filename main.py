@@ -2,6 +2,7 @@ from create_operations import Create
 from read_operations import Read
 from update_operations import Update
 from delete_operations import Delete
+from BorrowReturn import BorrowReturn
 
 def menu():
     while True:
@@ -15,6 +16,8 @@ def menu():
         print("7. Update Member Email")
         print("8. Delete Member")
         print("9. Delete Book")
+        print("10. Borrow Book")
+        print("11. Return Book")
         print("0. Exit")
         choice = input("Choose an option: ").strip()
 
@@ -57,6 +60,14 @@ def menu():
         elif choice == "9":
             book_id = int(input("Book ID: "))
             print(Delete.delete_book(book_id))
+        elif choice == "10":
+            member_id = int(input("Member ID: "))
+            book_id = int(input("Book ID: "))
+            print(BorrowReturn.borrow_book(member_id, book_id))
+        elif choice == "11":
+            member_id = int(input("Member ID: "))
+            book_id = int(input("Book ID: "))
+            print(BorrowReturn.return_book(member_id, book_id))
         elif choice == "0":
             break
         else:
